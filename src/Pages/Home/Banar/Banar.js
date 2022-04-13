@@ -11,7 +11,7 @@ const Banar = () => {
 
 
     return (
-        <div className=''>
+        <div className='bener-container'>
             <Carousel activeIndex={index} onSelect={handleSelect}>
                 <Carousel.Item>
                     <img
