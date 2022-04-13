@@ -16,7 +16,7 @@
     .services-container {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
-        width: 550px;
-        margin: 0 auto;
+        width: 90vw;
+
     }
 }
