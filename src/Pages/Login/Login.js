@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import image from '../../images/icon/google3.png'
 import './Login.css'
 const Login = () => {
     const emailRef = useRef('')
@@ -35,10 +34,7 @@ const Login = () => {
                     <input className='login_submit_btn' type="submit" value="Login" />
                 </form>
                 <p className='sing-up-togel'>New to car doctor?  <span onClick={navigateTogole} className='new-ema'> Create an account</span></p>
-                <button className='google-sing-btn'>
-                    <img src={image} alt="" />
-                    <span>Continue With Google</span>
-                </button>
+
             </div>
         </div>
     );
