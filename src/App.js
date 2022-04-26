@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import About from './Pages/About/About'
 import AddService from './Pages/AddService/AddService';
+import CustomerOrder from './Pages/CustomerOrder/CustomerOrder';
 import BookService from './Pages/Home/BookService/BookService';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login';
@@ -22,6 +23,7 @@ function App() {
         <Route path='/service/:serviceId' element={<ServicesDetails />} />
         <Route path='/checkout' element={<AddService />}></Route>
         <Route path='/manageServices' element={<ManageService />}></Route>
+        <Route path='/orders' element={<CustomerOrder />} />
         <Route path='bookService/:serviceId' element={<BookService />} />
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />

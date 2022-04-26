@@ -1,17 +1,39 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './Login.css'
+import auth from '../../firebase.init';
+import axios from 'axios';
 const Login = () => {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+
     const emailRef = useRef('')
     const passwordRef = useRef('')
     const navigate = useNavigate()
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault()
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-
-        console.log(email, password)
+        await signInWithEmailAndPassword(email, password)
+        const { data } = await axios.post('http://localhost:5000/login', { email });
+        console.log(data);
+        localStorage.setItem('accessToken', data.accessToken);
+        if (user) {
+            navigate('/checkout')
+        }
     }
+    if (error) {
+        console.log(error);
+    }
+
     const navigateTogole = e => {
         navigate("/register")
     }
